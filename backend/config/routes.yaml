@@ -1,0 +1,223 @@
+
+###                                            Personne Routes                                              ###
+gesdinet_jwt_refresh_token:
+    path: /api/token/refresh
+    controller: gesdinet.jwtrefreshtoken::refresh
+
+list_all_personnes:
+    path: /api/personnes
+    controller: App\Controller\UsersController::getAllPersonnes
+    methods: GET
+
+show_admins:
+    path: /api/admins
+    controller: App\Controller\UsersController::getAllAdmins
+    methods: GET
+
+show_medecins:
+    path: /api/medecins
+    controller: App\Controller\UsersController::getAllMedecins
+    methods: GET
+
+show_users:
+    path: /api/users
+    controller: App\Controller\UsersController::getAllUsers
+    methods: GET
+
+show_personne:
+    path: /api/personne/{id_person}
+    controller: App\Controller\UsersController::showPersonne
+    methods: GET
+
+add_personne:
+    path: /api/personne/add
+    controller: App\Controller\UsersController::addPersonne
+    methods: POST
+
+person_edit:
+    path: /api/personne/{id_person}/update
+    controller: App\Controller\UsersController::updatePersonne
+    methods: POST
+
+person_delete:
+    path: /api/personne/{id_person}/delete
+    controller: App\Controller\UsersController::deletePersonne
+    methods: DELETE
+
+add_abonnee:
+    path: /api/personne/{id_source}/{id_target}/abonner
+    controller: App\Controller\UsersController::Abonner
+    methods: GET
+
+delete_abonnee:
+    path: /api/personne/{id_source}/{id_target}/disabonner
+    controller: App\Controller\UsersController::Disabonner
+    methods: GET
+
+
+
+###                                                 Roles  Routes                                                   ###
+show_all_roles:
+    path: /api/roles
+    controller: App\Controller\RoleController::getAllRoles
+    methods: GET
+
+add_role:
+    path: /api/role/add
+    controller: App\Controller\RoleController::addRole
+    methods: POST
+
+update_role:
+    path: /api/role/{role_id}/update
+    controller: App\Controller\RoleController::updateRole
+    methods: PUT
+
+delete_role:
+    path: /api/role/{role_id}/delete
+    controller: App\Controller\RoleController::deleteRole
+    methods: DELETE
+
+###                                              Permission Routes                                                  ###
+show_all_permissions:
+    path: /api/permissions
+    controller: App\Controller\PermissionController::getAllPermissions
+    methods: Get
+
+add_new_permission:
+    path: /api/permission/add
+    controller: App\Controller\PermissionController::addNewPermission
+    methods: POST
+
+update_permission:
+    path: /api/permission/{id_permission}/update
+    controller: App\Controller\PermissionController::updatePermission
+    methods: PUT
+
+delete_permission:
+    path: /api/permission/{id_permission}/delete
+    controller: App\Controller\PermissionController::deletePermission
+    methods: DELETE
+
+
+
+###                                         Articles Routes                                                ###
+
+liste_all_articles:
+    path: /api/articles
+    controller: App\Controller\ArticleController::getAllArticles
+    methods: GET
+
+article_show_by_maladie:
+    path: /api/articles/maladie
+    controller: App\Controller\ArticleController::getArticlesByMaladie
+    methods: POST
+
+article_show:
+    path: /api/article/{id}
+    controller: App\Controller\ArticleController::getArticle
+    methods: GET
+
+list_articles_medecin:
+    path: /api/medecin/{id_person}/articles
+    controller: App\Controller\ArticleController::getArticlesOfMedecin
+    methods: GET
+
+article_add:
+    path: /api/article/add/{personId}
+    controller: App\Controller\ArticleController::addArticleToPerson
+    methods: POST
+
+article_edit:
+    path: /api/article/{id_article}/update
+    controller: App\Controller\ArticleController::updateArticle
+    methods: POST
+
+article_delete:
+    path: /api/article/{id_article}/delete
+    controller: App\Controller\ArticleController::deleteArticle
+    methods: DELETE
+
+
+###                                        Consultations  Routes                                             ###
+
+show_all_consultations:
+    path: /api/consultations
+    controller: App\Controller\ConsultationController::getAllConsultations
+    methods: GET
+
+add_consultation:
+    path: /api/consultation/{id_medecin}/{id_user}/add
+    controller: App\Controller\ConsultationController::addConsultation
+    methods: POST
+
+update_consultation:
+    path: /api/consultation/{id_consultation}/update
+    controller: App\Controller\ConsultationController::updateConsultation
+    methods: PUT
+
+delete_consultation:
+    path: /api/consultation/{id_consultation}/delete
+    controller: App\Controller\ConsultationController::deleteConsultation
+    methods: DELETE
+
+
+###                                      Posts               Routes                                             ###
+
+show_all_posts:
+    path: /api/posts
+    controller: App\Controller\PostController::getAllPosts
+    methods: GET
+
+add_post:
+    path: /api/commentaire/{id_personne}/{id_article}/add
+    controller: App\Controller\PostController::addCommentaire
+    methods: POST
+
+update_post:
+    path: /api/commentaire/{id_post}/update
+    controller: App\Controller\PostController::updateCommentaire
+    methods: PUT
+
+delete_post:
+    path: /api/commentaire/{id_post}/delete
+    controller: App\Controller\PostController::deleteCommentaire
+    methods: DELETE
+
+
+
+
+###                                      Reactions              Routes                                             ###
+
+show_all_reactions:
+    path: /api/reactions
+    controller: App\Controller\ReactionController::getAllReactions
+    methods: GET
+
+add_reaction:
+    path: /api/reaction/{id_personne}/{id_article}/like
+    controller: App\Controller\ReactionController::Like
+    methods: GET
+
+update_reaction:
+    path: /api/reaction/{id_personne}/{id_article}/dislike
+    controller: App\Controller\ReactionController::Dislike
+    methods: GET
+
+
+
+###                                      Images                 Routes                                             ###
+add_image:
+    path: /api/addimage
+    controller: App\Controller\ImageController::addImage
+    methods: POST
+
+delete_image:
+    path: /api/deleteimage
+    controller: App\Controller\ImageController::deleteImage
+    methods: DELETE
+test_image:
+    path: /api/testimage
+    controller: App\Controller\ImageController::testImage
+    methods: GET
+
+
